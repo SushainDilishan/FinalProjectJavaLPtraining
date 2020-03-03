@@ -1,4 +1,4 @@
-package com.finalproject.UserService;
+package com.sushain.assigments;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
