@@ -13,17 +13,36 @@ public class User {
 		@Id
 			@GeneratedValue(strategy = GenerationType.IDENTITY)
 		int id;
-		
+
+		String username;
 		String firstName;
 		String lastName;
 		String age;
 		String mobileNo;
-		
+		String password;
+
+
 		@OneToOne(cascade = CascadeType.ALL)
 		Address address;
-		
-		
-		public Address getAddress() {
+
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Address getAddress() {
 			return address;
 		}
 		public void setAddress(Address address) {

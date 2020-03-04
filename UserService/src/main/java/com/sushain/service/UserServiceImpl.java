@@ -6,6 +6,7 @@ import com.sushain.model.User;
 
 public class UserServiceImpl implements UserService {
 
+
 	@Override
 	public List<User> findAllUsers() {
 		// TODO Auto-generated method stub	
