@@ -3,14 +3,20 @@ package com.sushain.service;
 import java.util.List;
 
 import com.sushain.model.User;
+import com.sushain.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserServiceImpl implements UserService {
 
+	@Autowired
+	UserRepository userRepository;
 
 	@Override
 	public List<User> findAllUsers() {
-		// TODO Auto-generated method stub	
-		return null;
+
+		return userRepository.findAll();
 	}
 
 	@Override

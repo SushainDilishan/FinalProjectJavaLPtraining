@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/user?createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:3306/admindb?createDatabaseIfNotExist=true
     username: sushi
     password: sushi1234
     driver-class-name: com.mysql.cj.jdbc.Driver
