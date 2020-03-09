@@ -3,9 +3,7 @@ package com.sushain.controller;
 import com.sushain.model.User;
 import com.sushain.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,6 +19,10 @@ public class UserController {
   public List<User> getUsers(){
 
       return userService.findAllUsers();
+  }
+  @PostMapping("/add")
+  public void createUser(@RequestBody User user){
+    userService.save(user);
   }
 
 

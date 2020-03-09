@@ -16,8 +16,18 @@ public class User {
 
 		String name;
 		String email;
+		Integer telephone;
 		String type;
 		String password;
+
+
+	public Integer getTelephone() {
+		return telephone;
+	}
+
+	public void setTelephone(Integer telephone) {
+		this.telephone = telephone;
+	}
 
 	public Integer getId() {
 		return id;

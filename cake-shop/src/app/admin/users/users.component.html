@@ -1,1 +1,29 @@
-<p>users works!</p>
+<h1>Users Admin</h1>
+<a class="btn btn-primary mb-3" (click)="addUser()">Create User</a>
+<div class="container row">
+    <div   class="col-md-6">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Telephone</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users" >
+        <td>{{user.id}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.telephone}}</td>
+        <td><button type="button" class="btn btn-primary">Show Details</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div   class="col-md-6">
+    <app-adduser *ngIf="action === 'add'" [user]="selectedUser" (userAddedEvent)="refreshData()"></app-adduser>
+  </div>
+</div>
