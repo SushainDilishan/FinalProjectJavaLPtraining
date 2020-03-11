@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../model/User';
+import { Product } from '../model/Product';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +25,9 @@ export class HttpClientService {
 
   deleteUser(id) {
     return this.httpClient.delete<User>('http://localhost:8080/bella/' + id);
+  }
+
+  getProducts() {
+    return this.httpClient.get<Product[]>('http://localhost:8080/products/get');
   }
 }

@@ -1,0 +1,27 @@
+<h1>Product Admin</h1>
+
+<div class="container row">
+  <div class="col-md-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Product Name</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{product.id}}</td>
+          <td>{{product.productName}}</td>
+          <td>
+            <button type="button" class="btn btn-primary" (click)="setProducts(product.id)">Show Details</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-6">
+    View Cakes
+  </div>
+</div>

@@ -9,6 +9,8 @@ import { UsersComponent } from './admin/users/users.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AdduserComponent } from './admin/users/adduser/adduser.component';
 import { ViewuserComponent } from './admin/users/viewuser/viewuser.component';
+import { ProductsComponent } from './admin/products/products.component';
+import { AddproductComponent } from './admin/products/addproduct/addproduct.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { ViewuserComponent } from './admin/users/viewuser/viewuser.component';
     MenuComponent,
     UsersComponent,
     AdduserComponent,
-    ViewuserComponent
+    ViewuserComponent,
+    ProductsComponent,
+    AddproductComponent
   ],
   imports: [
     BrowserModule,
