@@ -1,5 +1,6 @@
 package com.sushain.controller;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sushain.model.User;
 import com.sushain.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,11 @@ public class UserController {
     userService.save(user);
   }
 
+  @DeleteMapping(path = { "/{id}" })
+  public void deleteUser(@PathVariable("id") Integer id){
 
+    userService.deleteUser(id);
+
+  }
 
 }

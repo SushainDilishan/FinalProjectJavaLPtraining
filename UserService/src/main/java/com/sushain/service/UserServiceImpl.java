@@ -2,6 +2,7 @@ package com.sushain.service;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sushain.model.User;
 import com.sushain.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +29,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User fetchallUser(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public User deleteUser(Integer id) {
+		User user = userRepository.getOne(id);
+		userRepository.deleteById(id);
+		return user;
 	}
-
 }
