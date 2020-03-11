@@ -25,9 +25,13 @@ export class HttpClientService {
 
   deleteUser(id) {
     return this.httpClient.delete<User>('http://localhost:8080/bella/' + id);
-  }
+  } 
 
   getProducts() {
-    return this.httpClient.get<Product[]>('http://localhost:8080/products/get');
+    return this.httpClient.get<Product[]>('http://localhost:8081/products/get');
+  }
+
+  addProduct(newProduct: Product) {
+    return this.httpClient.post<Product>('http://localhost:8081/products/save', newProduct);
   }
 }

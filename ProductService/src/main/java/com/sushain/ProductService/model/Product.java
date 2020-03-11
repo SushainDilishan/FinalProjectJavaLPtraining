@@ -1,9 +1,6 @@
 package com.sushain.ProductService.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Product {
@@ -14,6 +11,7 @@ public class Product {
     private String productName;
     private Double price;
     private String Details;
+    @Column(name = "picByte",length =100000000 )
     private byte [] picByte;
 
     public Integer getId() {
