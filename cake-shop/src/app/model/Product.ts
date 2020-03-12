@@ -5,5 +5,6 @@ export class Product {
     price: number;
     details: string;
     picByte: string;
+    retrievedImage: string;
 
     }

@@ -25,4 +25,13 @@ public class ProductServiceImple implements ProductService {
         Product product1 = productRepository.save(product);
         return product1;
     }
+
+    @Override
+    public Product delete(Integer id) {
+        Product product = productRepository.getOne(id);
+        productRepository.deleteById(id);
+        return product;
+    }
+
+
 }

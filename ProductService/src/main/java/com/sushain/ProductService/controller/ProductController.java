@@ -36,4 +36,9 @@ public class ProductController {
         productService.save(product);
         this.bytes = null;
     }
+
+    @DeleteMapping("/{id")
+    public Product deleteProduct(@PathVariable("id") Integer id){
+        return productService.delete(id);
+    }
 }

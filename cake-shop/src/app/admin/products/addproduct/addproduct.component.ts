@@ -1,8 +1,9 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input, Output,EventEmitter } from '@angular/core';
 import { Product } from 'src/app/model/Product';
 import { HttpClientService } from 'src/app/service/http-client.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-addproduct',
@@ -13,7 +14,11 @@ export class AddproductComponent implements OnInit {
 
   @Input()
   product : Product;
-  private selectedFile;
+
+  @Output()
+  productAddedEvent = new EventEmitter();
+
+  public selectedFile;
   imgURL: any;
 
   constructor(private httpClientService: HttpClientService,
@@ -46,7 +51,8 @@ export class AddproductComponent implements OnInit {
         .subscribe((response) => {
           if (response.status === 200) {
             this.httpClientService.addProduct(this.product).subscribe(
-              (book) => {
+              (product) => {
+                this.productAddedEvent.emit();
                 this.router.navigate(['admin', 'products']);
               }
             );

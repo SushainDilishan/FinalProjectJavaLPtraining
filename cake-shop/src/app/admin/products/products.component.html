@@ -15,13 +15,14 @@
           <td>{{product.id}}</td>
           <td>{{product.productName}}</td>
           <td>
-            <!-- <button type="button" class="btn btn-primary" (click)="setProducts(product.id)">Show Details</button> -->
+            <button type="button" class="btn btn-primary" (click)="viewProduct(product.id)">Show Details</button>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
   <div class="col-md-6">
-    <app-addproduct *ngIf="action === 'add'" [product]="selectedProduct"></app-addproduct>
+    <app-addproduct *ngIf="action === 'add'" [product]="selectedProduct" (productAddedEvent)="refreshData()"></app-addproduct>
+    <app-view-product *ngIf="action === 'view'" [product]="selectedProduct"></app-view-product>
   </div>
 </div>

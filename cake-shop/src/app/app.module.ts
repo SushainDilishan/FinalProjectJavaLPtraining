@@ -11,6 +11,7 @@ import { AdduserComponent } from './admin/users/adduser/adduser.component';
 import { ViewuserComponent } from './admin/users/viewuser/viewuser.component';
 import { ProductsComponent } from './admin/products/products.component';
 import { AddproductComponent } from './admin/products/addproduct/addproduct.component';
+import { ViewProductComponent } from './admin/products/view-product/view-product.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AddproductComponent } from './admin/products/addproduct/addproduct.comp
     AdduserComponent,
     ViewuserComponent,
     ProductsComponent,
-    AddproductComponent
+    AddproductComponent,
+    ViewProductComponent
   ],
   imports: [
     BrowserModule,
