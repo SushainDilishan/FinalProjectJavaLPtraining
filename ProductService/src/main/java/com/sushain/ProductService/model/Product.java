@@ -5,14 +5,23 @@ import javax.persistence.*;
 @Entity
 public class Product {
 
+    public Product (String productName,String details,byte[] picByte ){
+        this.productName = productName;
+        this.details = details;
+        this.picByte = picByte;
+    }
     @Id
             @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String productName;
     private Double price;
-    private String Details;
-    @Column(name = "picByte",length =100000000 )
+    private String details;
+    @Column(name = "picByte", length =100000)
     private byte [] picByte;
+
+    public Product(){
+
+    }
 
     public Integer getId() {
         return id;
@@ -39,11 +48,11 @@ public class Product {
     }
 
     public String getDetails() {
-        return Details;
+        return details;
     }
 
     public void setDetails(String details) {
-        Details = details;
+        this.details = details;
     }
 
     public byte[] getPicByte() {

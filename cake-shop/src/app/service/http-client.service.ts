@@ -38,4 +38,7 @@ export class HttpClientService {
   deleteProduct(id) {
     return this.httpClient.delete<Product>('http://localhost:8081/products/' + id);
   }
+  addUploadData(selectedFile) {
+    return this.httpClient.post('http://localhost:8081/products/upload', selectedFile);
+  }
 }

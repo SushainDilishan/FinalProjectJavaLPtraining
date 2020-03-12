@@ -1,4 +1,4 @@
-import { Component, OnInit,Input, Output,EventEmitter } from '@angular/core';
+import { Component, OnInit,Input,EventEmitter,Output } from '@angular/core';
 import { Product } from 'src/app/model/Product';
 import { HttpClientService } from 'src/app/service/http-client.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -26,6 +26,7 @@ export class AddproductComponent implements OnInit {
     private router: Router,
     private httpClient: HttpClient) { }
 
+    
     ngOnInit() {
     }
   

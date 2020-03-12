@@ -23,6 +23,6 @@
   </div>
   <div class="col-md-6">
     <app-addproduct *ngIf="action === 'add'" [product]="selectedProduct" (productAddedEvent)="refreshData()"></app-addproduct>
-    <app-view-product *ngIf="action === 'view'" [product]="selectedProduct"></app-view-product>
+    <app-view-product *ngIf="action === 'view'" [product]="selectedProduct" (productDeletedEvent)="refreshData()"></app-view-product>
   </div>
 </div>

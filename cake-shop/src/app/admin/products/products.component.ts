@@ -3,6 +3,7 @@ import { Product } from 'src/app/model/Product';
 import { HttpClientService } from 'src/app/service/http-client.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -10,9 +11,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProductsComponent implements OnInit {
 
-  products:Array<Product>
+  products:Array<Product>;
+  products1:Array<Product>;
   selectedProduct: Product;
   action: string;
+  
 
   constructor(private httpClientService: HttpClientService,private activedRoute: ActivatedRoute,
     private router: Router) { }
@@ -43,18 +46,21 @@ export class ProductsComponent implements OnInit {
   }
 
   handleSuccessfulResponse(response) {
-    this.products = new Array<Product>();
-    this.products = response;
-    for (const product of this.products) {
     
-      const product1 = new Product();
-      product1.id = product.id;
-      product1.productName = product.productName;
-      product1.retrievedImage = 'data:image/jpeg;base64,' + product.picByte;
+    this.products = new Array<Product>();
+    this.products1 = response;
+
+    for (const product of this.products1) {
+    
+      const product2 = new Product();
+      product2.id = product.id;
+      product2.productName = product.productName;
+      product2.picByte= product.picByte;
+      product2.retrievedImage = 'data:image/jpeg;base64,' + product.picByte;
+      product2.price = product.price;
+      product2.details = product.details;
       
-      product1.price = product.price;
-      product1.picByte=product.picByte;
-      this.products.push(product1);
+      this.products.push(product2);
     }
   }
 
