@@ -1,6 +1,7 @@
 package com.sushain.controller;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sushain.model.Roles;
 import com.sushain.model.User;
 import com.sushain.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,12 @@ public class UserController {
   public List<User> getUsers(){
 
       return userService.findAllUsers();
+  }
+
+  @GetMapping(produces = "application/json")
+  @RequestMapping({"/validate"})
+  public Roles validate(){
+    return  new Roles("Success");
   }
   @PostMapping("/add")
   public void createUser(@RequestBody User user){
