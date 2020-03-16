@@ -1,33 +1,54 @@
 package com.sushain.model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
+@Table(	name = "users",
+		uniqueConstraints = {
+				@UniqueConstraint(columnNames = "username"),
+				@UniqueConstraint(columnNames = "email")
+		})
 public class User {
 		
 		@Id
 			@GeneratedValue(strategy = GenerationType.IDENTITY)
-		Integer id;
+		private Integer id;
 
-		String name;
-		String email;
-		Integer telephone;
-		String type;
-		String password;
+		@NotBlank
+				@Size(max = 20)
+		private String username;
 
+		@NotBlank
+		@Size(max = 50)
+		@Email
+		private String email;
 
-	public Integer getTelephone() {
-		return telephone;
-	}
+		@NotBlank
+				@Size(max = 10)
+		private Integer telephone;
+		@NotBlank
+				@Size(max = 100)
+		private String password;
 
-	public void setTelephone(Integer telephone) {
-		this.telephone = telephone;
-	}
+		@ManyToMany(fetch = FetchType.LAZY)
+		@JoinTable(	name = "user_roles",
+			joinColumns = @JoinColumn(name = "user_id"),
+			inverseJoinColumns = @JoinColumn(name = "role_id"))
+		private Set<Roles> roles = new HashSet<>();
+
+		public User(){}
+
+		public User(String username,String email,String password,Integer telephone){
+			this.username = username;
+			this.email = email;
+			this.password = password;
+			this.telephone = telephone;
+		}
 
 	public Integer getId() {
 		return id;
@@ -37,12 +58,12 @@ public class User {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getEmail() {
@@ -53,12 +74,12 @@ public class User {
 		this.email = email;
 	}
 
-	public String getType() {
-		return type;
+	public Integer getTelephone() {
+		return telephone;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setTelephone(Integer telephone) {
+		this.telephone = telephone;
 	}
 
 	public String getPassword() {
@@ -67,5 +88,13 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public Set<Roles> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<Roles> roles) {
+		this.roles = roles;
 	}
 }

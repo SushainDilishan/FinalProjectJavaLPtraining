@@ -11,3 +11,8 @@ spring:
       ddl-auto: update
 server:
   port: 8080
+
+sushain:
+  app:
+    jwtSecret: sushainSecretKey
+    jwtExpirationMs: 86400000

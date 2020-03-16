@@ -1,16 +1,39 @@
 package com.sushain.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "roles")
 public class Roles {
-    private String status;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-    public Roles(String status){
-        this.status = status;
-    }
-    public String getStatus() {
-        return status;
+    @Enumerated(EnumType.STRING)
+    @Column(length = 20)
+    private ERole name;
+
+    public Roles() {
+
     }
 
-    public void setStatus(String status) {
-        status = status;
+    public Roles(ERole name) {
+        this.name = name;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public ERole getName() {
+        return name;
+    }
+
+    public void setName(ERole name) {
+        this.name = name;
     }
 }
