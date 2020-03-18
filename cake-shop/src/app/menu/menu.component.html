@@ -1,19 +1,37 @@
 <header>
     <nav class="navbar navbar-expand-md navbar-primary bg-danger">
         <div><a  class="navbar-brand">BellaCakes</a></div>
-        <ul class="navbar-nav">
-            <li *ngIf="loginService.isUserLoggedIn()" class="nav-item dropdown">
+        <ul class="navbar-nav mr-auto">
+            <li *ngIf="showAdminBoard" class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                     Admin
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a *ngIf="loginService.isUserLoggedIn()" routerLink="/admin/users" class ="dropdown-item">Users</a>
-                    <a *ngIf="loginService.isUserLoggedIn()" routerLink="/admin/products" class="dropdown-item">Products</a>
+                    <a *ngIf="showAdminBoard" routerLink="/admin/users" class ="dropdown-item">Users</a>
+                    <a *ngIf="showAdminBoard" routerLink="/admin/products" class="dropdown-item">Products</a>
                 </div>
             </li>
-            <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
-            <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a></li>
+            <!-- <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
+            <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a></li> -->
         </ul>
+
+        <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+            <li class="nav-item">
+              <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
+            </li>
+            <li class="nav-item">
+              <a href="/login" class="nav-link" routerLink="login">Login</a>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+            <!-- <li class="nav-item">
+              <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+            </li> -->
+            <li class="nav-item">
+              <a href class="nav-link" (click)="logout()">LogOut</a>
+            </li>
+          </ul>
     </nav>
 </header>

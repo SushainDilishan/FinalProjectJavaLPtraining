@@ -26,12 +26,12 @@ export class AdduserComponent implements OnInit {
     this.newUser = Object.assign({},this.user);
   }
 
-  addUser() {
-    this.httpClientService.addUser(this.user).subscribe(
-      (user) => {
-        this.userAddedEvent.emit();
-        this.router.navigate(['admin', 'users']);
-      }
-    );
-  }
+  // addUser() {
+  //   this.httpClientService.addUser(this.user).subscribe(
+  //     (user) => {
+  //       this.userAddedEvent.emit();
+  //       this.router.navigate(['admin', 'users']);
+  //     }
+  //   );
+  // }
 }

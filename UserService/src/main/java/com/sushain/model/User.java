@@ -28,8 +28,7 @@ public class User {
 		@Email
 		private String email;
 
-		@NotBlank
-				@Size(max = 10)
+//		@NotBlank
 		private Integer telephone;
 		@NotBlank
 				@Size(max = 100)

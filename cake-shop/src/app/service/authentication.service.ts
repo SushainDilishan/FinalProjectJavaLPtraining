@@ -1,44 +1,36 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { User } from '../model/User';
-import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
-export class Roles{
-  constructor(
-    public status:string,
-     ) {}
-  
-}
+
+
+const AUTH_API = 'http://localhost:8080/bella/';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private http:HttpClient) { }
  
-  authenticate(username, password) {
-    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
-    return this.httpClient.get<Roles>('http://localhost:8080/bella/validate',{headers}).pipe(
-     map(
-       userData => {
-        sessionStorage.setItem('username',username);
-        let authString = 'Basic ' + btoa(username + ':' + password);
-          sessionStorage.setItem('basicauth', authString);
-        return userData;
-       }
-     )
-
-    );
+  login(credentials): Observable<any> {
+    return this.http.post(AUTH_API + 'signin', {
+      username: credentials.username,
+      password: credentials.password
+    }, httpOptions);
   }
 
-  isUserLoggedIn() {
-    let user = sessionStorage.getItem('username')
-    console.log(!(user === null))
-    return !(user === null)
+  register(user): Observable<any> {
+    return this.http.post(AUTH_API + 'signup', {
+      username: user.username,
+      email: user.email,
+      telephone:user.telephone,
+      password: user.password
+    }, httpOptions);
   }
 
-  logOut() {
-    sessionStorage.removeItem('username')
-  }
 }
