@@ -43,7 +43,9 @@ export class AddproductComponent implements OnInit {
     }
   
     saveProduct() {
-  
+      
+      if (this.product.id == null) {
+
       const uploadData = new FormData();
       uploadData.append('imageFile', this.selectedFile, this.selectedFile.name);
       this.selectedFile.imageName = this.selectedFile.name;
@@ -63,5 +65,12 @@ export class AddproductComponent implements OnInit {
           }
         }
         );
-    }
+    }else{
+      this.httpClientService.updateProduct(this.product).subscribe(
+        (product) => {
+          this.productAddedEvent.emit();
+          this.router.navigate(['admin', 'products']);
+    });
+    
+  }}
 }

@@ -44,6 +44,11 @@ public class ProductController {
         this.bytes = null;
     }
 
+    @PutMapping("/update")
+    public void updateBook(@RequestBody Product product){
+        productService.save(product);
+    }
+
     @DeleteMapping(path = { "/{id}" })
     public void deleteProduct(@PathVariable("id") Integer id){
         productService.delete(id);

@@ -58,4 +58,8 @@ export class HttpClientService {
     return this.httpClient.post<Product>('http://localhost:8081/products/upload', selectedFile); 
     // return this.httpClient.post('http://localhost:8081/products/upload', selectedFile);
   }
+
+  updateProduct(updatedProduct: Product) {
+    return this.httpClient.put<Product>('http://localhost:8081/products/update', updatedProduct);
+  }
 }

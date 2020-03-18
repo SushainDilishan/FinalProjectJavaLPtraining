@@ -1,4 +1,5 @@
-<h1>Add Product Admin</h1>
+
+  <h1>{{product.id == null ? 'Add' : 'Edit'}} Product - {{product.id}}</h1>
 
 <form>
   <label for="name">Name</label>
@@ -10,11 +11,12 @@
   <label for="Details">Details</label>
   <input type="text" class="form-control" id="details" placeholder="details" name="details" [(ngModel)]="product.details">
 
-
+  <div class="form-group" *ngIf="product.id == null">
     <br>
     <input type="file" (change)="onFileChanged($event)">
     <img [src]="imgURL" height="200" width="200" *ngIf="imgURL">
 
   <br>
+  </div>
   <button type="button" class="btn btn-success" (click)="saveProduct()">Save Product</button>
 </form>

@@ -73,4 +73,8 @@ export class ProductsComponent implements OnInit {
     this.router.navigate(['admin', 'products'], { queryParams: { id, action: 'view' } });
   }
 
+  // updateProduct(id:number){
+  //   this.router.navigate(['admin', 'products'], { queryParams: { id, action: 'edit' } });
+  // }
+
 }
