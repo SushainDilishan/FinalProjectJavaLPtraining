@@ -17,6 +17,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { BasicAuthInterceptorService } from './service/basic-auth-interceptor.service';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
+import { ViewProductsComponent } from './view-products/view-products.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     LogoutComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    ViewProductsComponent
   ],
   imports: [
     BrowserModule,

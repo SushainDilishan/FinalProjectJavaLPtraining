@@ -1,0 +1,42 @@
+<div class="container ">
+    <div id="some-list" class="row">
+        <div class="col-sm-3" *ngFor="let product of products">
+          <div id="itemDetails"></div>
+          <div class="card" style="width: 18rem; padding: 10px;">
+            <img src="{{product.retrievedImage}}" class="card-img-top" src="..." alt="Card image cap" height="200" width="100">
+            <div class="card-body">
+              <h5 class="card-title">{{product.productName}}</h5>
+              <p>{{product.price}}</p>
+              <p class="card-text">{{product.details}}</p>
+              <div *ngIf="!isLoggedIn">
+                <b class="card-text">Login to Reserve</b>
+              </div>
+              <div *ngIf="showAdminBoard || showUserBoard" >
+              <a href="#" class="btn btn-primary">Reserve Product</a>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- <h2>Cakes</h2>
+
+        <table class="table" *ngFor="let product of products">
+            <tr>
+                <td>{{product.productName}}</td>
+            </tr>
+            <tr>
+                <td>{{product.price}}</td>
+            </tr>
+            <tr>
+                <td>{{product.details}}</td>
+            </tr>
+            <tr>
+            <td><img src="{{product.retrievedImage}}" target="_blank" height="200" width="200"></td>
+            </tr>
+        </table> -->
+        <!-- <br>
+        <img src="{{product.retrievedImage}}" target="_blank" height="200" width="200">
+        <br><br> -->
+    
+         <!-- <a class="btn btn-primary" (click)="orderProduct()">edit</a>  -->
+    </div>

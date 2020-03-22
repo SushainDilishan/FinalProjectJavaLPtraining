@@ -1,7 +1,6 @@
 package com.sushain.orderService.model;
 
-import com.sushain.orderService.model.sharedmodel.Product;
-import com.sushain.orderService.model.sharedmodel.User;
+
 import sun.jvm.hotspot.oops.Instance;
 
 import javax.persistence.*;
@@ -14,27 +13,16 @@ public class Order {
     @Id
             @GeneratedValue(strategy = GenerationType.AUTO)
     Integer id;
-    Integer pid;
-    Integer uid;
     Date orderDate;
     Date recieveDate;
     String Notes;
 
-    public Integer getPid() {
-        return pid;
-    }
+    Product product;
 
-    public void setPid(Integer pid) {
-        this.pid = pid;
-    }
 
-    public Integer getUid() {
-        return uid;
-    }
 
-    public void setUid(Integer uid) {
-        this.uid = uid;
-    }
+
+
 
     public Integer getId() {
         return id;
