@@ -1,8 +1,9 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input, Output,EventEmitter } from '@angular/core';
 import { Product } from '../model/Product';
 import { HttpClientService } from '../service/http-client.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { TokenStorageService } from '../service/token-storage.service';
+
 
 @Component({
   selector: 'app-view-products',
@@ -13,6 +14,9 @@ export class ViewProductsComponent implements OnInit {
   
   @Input()
   product :Product;
+
+  @Output()
+  productviewEvent = new EventEmitter();
 
   products:Array<Product>;
   products1:Array<Product>;
@@ -26,7 +30,7 @@ export class ViewProductsComponent implements OnInit {
   username: string;
 
   constructor(private httpClientService: HttpClientService,
-    private router: Router, private tokenStorageService: TokenStorageService) { }
+    private router: Router, private tokenStorageService: TokenStorageService,private activedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     
@@ -49,19 +53,20 @@ export class ViewProductsComponent implements OnInit {
 
     this.httpClientService.getProducts().subscribe(
       response => this.handleSuccessfulResponse(response)
+    
     );
     
-    // this.activedRoute.queryParams.subscribe(
-    //   (params) => {
-    //     const id = params['id'];
-    //     this.action = params['action'];
-    //     if (id) {
-    //       this.selectedProduct = this.products.find(product => {
-    //         return product.id === +id;
-    //       });
-    //     }
-    //   }
-    // );
+    this.activedRoute.queryParams.subscribe(
+      (params) => {
+        const id = params['id'];
+        this.action = params['action'];
+        if (id) {
+          this.selectedProduct = this.products.find(product => {
+            return product.id === +id;
+          });
+        }
+      }
+    );
   }
 
   handleSuccessfulResponse(response) {
@@ -83,13 +88,19 @@ export class ViewProductsComponent implements OnInit {
     }
   }
 
-  addProduct() {
-    this.selectedProduct = new Product();
-    this.router.navigate(['admin', 'products'], { queryParams: { action: 'add' } });
-  }
+  // addProduct() {
+  //   this.selectedProduct = new Product();
+  //   this.router.navigate(['admin', 'products'], { queryParams: { action: 'add' } });
+  // }
 
-  viewProduct(id: number) {
-    this.router.navigate(['admin', 'products'], { queryParams: { id, action: 'view' } });
+  // viewProduct(id: number) {
+  //   this.router.navigate(['admin', 'products'], { queryParams: { id, action: 'view' } });
+  // }
+
+  viewProduct(id:number) {
+
+    this.router.navigate(['makeorder'],{queryParams: { id, action: 'view'} });
+    this.productviewEvent.emit();
   }
 
   // updateProduct(id:number){

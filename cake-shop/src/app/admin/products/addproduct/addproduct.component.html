@@ -2,9 +2,10 @@
   <h1>{{product.id == null ? 'Add' : 'Edit'}} Product - {{product.id}}</h1>
 
 <form>
+  <!-- <fieldset disabled ="disabled" > -->
   <label for="name">Product Name</label>
   <input type="text" class="form-control" id="name" placeholder="Product name" [(ngModel)]="product.productName" name="name">
-
+<!-- </fieldset> -->
   <label for="price">Price</label>
   <input type="text" class="form-control" id="price" placeholder="price" name="price" [(ngModel)]="product.price">
 

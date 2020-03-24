@@ -52,6 +52,10 @@ export class HttpClientService {
     
     // return this.httpClient.delete<Product>('http://localhost:8081/products/' + id);
   }
+
+  findById(id){
+    return this.httpClient.get<Product>('http://localhost:8081/products/' + id,);
+  }
   addUploadData(selectedFile) {
     
    

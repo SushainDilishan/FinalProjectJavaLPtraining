@@ -13,16 +13,35 @@ public class Order {
     @Id
             @GeneratedValue(strategy = GenerationType.AUTO)
     Integer id;
+    String customerName;
+    String productName;
     Date orderDate;
     Date recieveDate;
-    String Notes;
+    String orderStatus;
 
-    Product product;
+    public String getOrderStatus() {
+        return orderStatus;
+    }
 
+    public void setOrderStatus(String orderStatus) {
+        this.orderStatus = orderStatus;
+    }
 
+    public String getCustomerName() {
+        return customerName;
+    }
 
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
 
+    public String getProductName() {
+        return productName;
+    }
 
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
 
     public Integer getId() {
         return id;
@@ -48,13 +67,7 @@ public class Order {
         this.recieveDate = recieveDate;
     }
 
-    public String getNotes() {
-        return Notes;
-    }
 
-    public void setNotes(String notes) {
-        Notes = notes;
-    }
 
 
 }

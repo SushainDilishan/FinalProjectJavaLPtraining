@@ -1,0 +1,46 @@
+
+<div class="col-md-12">
+  <div class="card card-container">
+    <form
+        *ngIf="!isSuccessful"
+        name="form"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        #f="ngForm"
+        novalidate
+         >
+         <div class="form-group">
+        <fieldset disabled ="disabled" >
+    <label for="productName">Product Name</label>
+    <input type="text"
+     class="form-control"
+      id="productName"
+       placeholder="Product name" 
+       [(ngModel)]="product1.productName" 
+       name="productName"
+       #productName="ngModel"
+       />
+  </fieldset>
+    </div>
+    <div class="form-group">
+    <fieldset disabled = "disabled">
+    <label for="customerName">Customer Name</label>
+    <input type="text"
+     class="form-control"
+      id="customerName" 
+      placeholder="customerName"
+       name="customerName" 
+       [(ngModel)]="username"
+       #customerName="ngModel"
+       >
+  </fieldset>
+  </div>
+    <!-- <label for="Details">Details</label>
+    <input type="text" class="form-control" id="details" placeholder="details" name="details" [(ngModel)]="product.details">
+   -->
+    <!-- <button type="button" class="btn btn-success" (click)="saveProduct()">Save Product</button> -->
+  </form>
+  
+  </div>
+</div>
+
+ 

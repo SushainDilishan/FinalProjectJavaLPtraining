@@ -7,6 +7,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { AuthGuardService } from './service/auth-guard.service';
 import { RegisterComponent } from './register/register.component';
 import { ViewProductsComponent } from './view-products/view-products.component';
+import { MakeorderComponent } from './makeorder/makeorder.component';
 
 
 const routes: Routes = [
@@ -14,8 +15,10 @@ const routes: Routes = [
   { path: 'admin/products', component: ProductsComponent,canActivate:[AuthGuardService]  },
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent,canActivate:[AuthGuardService]  },
+  { path: 'makeorder', component: MakeorderComponent,canActivate:[AuthGuardService]},
   { path: 'register', component: RegisterComponent },
   { path: 'viewproduct', component: ViewProductsComponent }
+  
 ];
 
 @NgModule({

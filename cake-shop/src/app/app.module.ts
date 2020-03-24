@@ -18,7 +18,8 @@ import { BasicAuthInterceptorService } from './service/basic-auth-interceptor.se
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { ViewProductsComponent } from './view-products/view-products.component';
-
+import { MakeorderComponent } from './makeorder/makeorder.component';
+// import { NgbDate, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { ViewProductsComponent } from './view-products/view-products.component';
     LogoutComponent,
     RegisterComponent,
     HomeComponent,
-    ViewProductsComponent
+    ViewProductsComponent,
+    MakeorderComponent
   ],
   imports: [
     BrowserModule,

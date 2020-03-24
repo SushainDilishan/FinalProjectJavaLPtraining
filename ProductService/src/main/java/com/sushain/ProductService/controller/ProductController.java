@@ -54,6 +54,12 @@ public class ProductController {
         productService.delete(id);
     }
 
+    @GetMapping(path = { "/{id}" })
+    public Product findByid(@PathVariable("id") Integer id){
+      Product product =   productService.findById(id);
+      return product;
+    }
+
 //    public static byte[] compressBytes(byte[] data) {
 //
 //        Deflater deflater = new Deflater();

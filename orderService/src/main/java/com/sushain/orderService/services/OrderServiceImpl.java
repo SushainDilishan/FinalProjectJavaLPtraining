@@ -17,4 +17,19 @@ public class OrderServiceImpl implements OrderService{
     public List<Order> findAllOrders() {
         return orderRepository.findAll();
     }
+
+    @Override
+    public Order save(Order order) {
+
+        order.setOrderStatus("Not Ready");
+        Order order1 = orderRepository.save(order);
+        return order1;
+    }
+
+    @Override
+    public Order delete(Integer id) {
+        Order order = orderRepository.getOne(id);
+        orderRepository.deleteById(id);
+        return order;
+    }
 }
