@@ -1,30 +1,47 @@
 package com.sushain.orderService.model;
 
 
-import sun.jvm.hotspot.oops.Instance;
+
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
-import java.util.List;
+
 
 @Entity
+@Table(name = "order_table")
 public class Order {
 
     @Id
             @GeneratedValue(strategy = GenerationType.AUTO)
-    Integer id;
-    String customerName;
-    String productName;
-    Date orderDate;
-    Date recieveDate;
-    String orderStatus;
+  private Integer id;
 
-    public String getOrderStatus() {
-        return orderStatus;
+    @Column
+    private String customerName;
+
+    @Column
+    private String productName;
+
+    @Column
+    private String orderStatus;
+
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date orderDate;
+
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
+    @Temporal(TemporalType.DATE)
+
+    private Date recieveDate;
+
+    public Integer getId() {
+        return id;
     }
 
-    public void setOrderStatus(String orderStatus) {
-        this.orderStatus = orderStatus;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getCustomerName() {
@@ -43,12 +60,12 @@ public class Order {
         this.productName = productName;
     }
 
-    public Integer getId() {
-        return id;
+    public String getOrderStatus() {
+        return orderStatus;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setOrderStatus(String orderStatus) {
+        this.orderStatus = orderStatus;
     }
 
     public Date getOrderDate() {
@@ -66,9 +83,5 @@ public class Order {
     public void setRecieveDate(Date recieveDate) {
         this.recieveDate = recieveDate;
     }
-
-
-
-
 }
 

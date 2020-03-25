@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 
 
 const AUTH_API = 'http://localhost:8080/bella/';
+const AUTH_API2 = 'http://localhost:8090/order/';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -31,6 +32,15 @@ export class AuthenticationService {
       telephone:user.telephone,
       password: user.password
     }, httpOptions);
+  }
+
+  order(product):Observable<any>{
+    return this.http.post(AUTH_API2 + 'save',{
+      
+      customerName:product.customerName,
+      productName:product.productName, 
+      recieveDate:product.recieveDate
+    },httpOptions);
   }
 
 }

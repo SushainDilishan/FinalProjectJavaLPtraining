@@ -56,10 +56,13 @@ export class MakeorderComponent implements OnInit {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
       this.username = this.tokenStorage.getUser().username;
+      this.form.customerName = this.tokenStorage.getUser().username;
+      
+
     }
     this.refreshData();
-   
-  }
+    
+    }
  
   refreshData() {
 
@@ -71,7 +74,7 @@ export class MakeorderComponent implements OnInit {
   }
 
   onSubmit() {
-    this.authService.register(this.form).subscribe(
+    this.authService.order(this.form).subscribe(
       data => {
         console.log(data);
         this.isSuccessful = true;
@@ -85,6 +88,7 @@ export class MakeorderComponent implements OnInit {
 
   handleSuccessfulResponse(response) {
        this.product1 = response;
+       this.form.productName = this.product1.productName;
     // this.product1.productName = this.order.productName;
     // this.order.productName = response;
       // const product2 = new Product();

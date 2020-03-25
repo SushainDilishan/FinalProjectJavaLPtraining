@@ -5,6 +5,9 @@ import com.sushain.orderService.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -21,7 +24,11 @@ public class OrderServiceImpl implements OrderService{
     @Override
     public Order save(Order order) {
 
+//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = new Date();
+
         order.setOrderStatus("Not Ready");
+        order.setOrderDate(date);
         Order order1 = orderRepository.save(order);
         return order1;
     }

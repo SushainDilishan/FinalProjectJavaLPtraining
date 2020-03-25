@@ -8,35 +8,61 @@
         #f="ngForm"
         novalidate
          >
+        
          <div class="form-group">
-        <fieldset disabled ="disabled" >
     <label for="productName">Product Name</label>
     <input type="text"
      class="form-control"
-      id="productName"
-       placeholder="Product name" 
-       [(ngModel)]="product1.productName" 
+        id="productName"
+       placeholder="" 
        name="productName"
+       [(ngModel)]="form.productName" 
        #productName="ngModel"
-       />
-  </fieldset>
+      />
+
     </div>
     <div class="form-group">
-    <fieldset disabled = "disabled">
+     
     <label for="customerName">Customer Name</label>
     <input type="text"
      class="form-control"
       id="customerName" 
-      placeholder="customerName"
-       name="customerName" 
-       [(ngModel)]="username"
-       #customerName="ngModel"
-       >
-  </fieldset>
+      name="customerName"
+      placeholder=""
+      [(ngModel)]="form.customerName" 
+      #customerName="ngModel"
+       />
+
+  </div> 
+
+   <!-- <div class="form-group">
+    <label for="orderDate">Order Date:</label>
+    <input type="date"
+    class="form-control"
+     id="orderDate"
+      name="orderDate"
+      [(ngModel)]="form.orderDate"
+      #orderDate ="ngModel"
+      />     
+  </div> -->
+
+  <div class="form-group">
+    <label for="recieveDate">Recieve Date:</label>
+    <input type="date"
+    class="form-control"
+     id="recieveDate"
+      name="recieveDate"
+      [(ngModel)]="form.recieveDate"
+      #recieveDate ="ngModel"
+      />     
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-primary btn-block">Place Order</button>
   </div>
     <!-- <label for="Details">Details</label>
     <input type="text" class="form-control" id="details" placeholder="details" name="details" [(ngModel)]="product.details">
-   -->
+  
     <!-- <button type="button" class="btn btn-success" (click)="saveProduct()">Save Product</button> -->
   </form>
   
