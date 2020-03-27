@@ -9,5 +9,6 @@ public interface OrderService {
     public List<Order> findAllOrders();
     public Order save(Order order);
     public Order delete(Integer id);
+    public Order findByName(String s);
 
 }

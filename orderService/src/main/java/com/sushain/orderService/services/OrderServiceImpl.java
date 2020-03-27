@@ -39,4 +39,12 @@ public class OrderServiceImpl implements OrderService{
         orderRepository.deleteById(id);
         return order;
     }
+
+    @Override
+    public Order findByName(String s) {
+        Order order = orderRepository.findByCustomerName(s);
+        return order;
+    }
+
+
 }

@@ -19,6 +19,7 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { ViewProductsComponent } from './view-products/view-products.component';
 import { MakeorderComponent } from './makeorder/makeorder.component';
+import { OrdersComponent } from './admin/orders/orders.component';
 // import { NgbDate, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { MakeorderComponent } from './makeorder/makeorder.component';
     RegisterComponent,
     HomeComponent,
     ViewProductsComponent,
-    MakeorderComponent
+    MakeorderComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,

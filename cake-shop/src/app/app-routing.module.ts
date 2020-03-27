@@ -8,11 +8,13 @@ import { AuthGuardService } from './service/auth-guard.service';
 import { RegisterComponent } from './register/register.component';
 import { ViewProductsComponent } from './view-products/view-products.component';
 import { MakeorderComponent } from './makeorder/makeorder.component';
+import { OrdersComponent } from './admin/orders/orders.component';
 
 
 const routes: Routes = [
   { path: 'admin/users', component: UsersComponent,canActivate:[AuthGuardService] },
   { path: 'admin/products', component: ProductsComponent,canActivate:[AuthGuardService]  },
+  { path: 'admin/orders', component: OrdersComponent,canActivate:[AuthGuardService]  },
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent,canActivate:[AuthGuardService]  },
   { path: 'makeorder', component: MakeorderComponent,canActivate:[AuthGuardService]},

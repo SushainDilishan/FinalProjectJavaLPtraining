@@ -26,7 +26,7 @@ public class OrderController {
     }
 
     @PutMapping("/update")
-    public void updateBook(@RequestBody Order order){
+    public void updateProduct(@RequestBody Order order){
         orderService.save(order);
     }
 
@@ -34,4 +34,13 @@ public class OrderController {
     public void deleteProduct(@PathVariable("id") Integer id){
         orderService.delete(id);
     }
+
+    @PostMapping("/{name}")
+    public void findOrder(@PathVariable("name") String name){
+        orderService.findByName(name);
+    }
+
+
+
+
 }

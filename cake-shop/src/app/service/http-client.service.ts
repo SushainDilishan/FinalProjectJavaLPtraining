@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../model/User';
 import { Product } from '../model/Product';
+import { Order } from '../model/Order';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,9 @@ export class HttpClientService {
     
   }
 
+      getOrders(){
+      return this.httpClient.get<Order[]>('http://localhost:8090/order/get');
+  }
   // addUser(newUser: User) {
     
     
@@ -66,4 +70,6 @@ export class HttpClientService {
   updateProduct(updatedProduct: Product) {
     return this.httpClient.put<Product>('http://localhost:8081/products/update', updatedProduct);
   }
+
+
 }
