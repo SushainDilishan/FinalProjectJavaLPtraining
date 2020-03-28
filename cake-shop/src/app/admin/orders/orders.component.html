@@ -27,4 +27,8 @@
       </tbody>
     </table>
   </div>
+
+  <div class="col-md-2">
+    <app-updatestatus *ngIf="action === 'update'" [order]="SelectedOrder" (productUpdatedEvent)="refreshData()"> </app-updatestatus>
+    </div>
 </div>

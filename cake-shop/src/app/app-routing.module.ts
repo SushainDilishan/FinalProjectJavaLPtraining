@@ -9,6 +9,8 @@ import { RegisterComponent } from './register/register.component';
 import { ViewProductsComponent } from './view-products/view-products.component';
 import { MakeorderComponent } from './makeorder/makeorder.component';
 import { OrdersComponent } from './admin/orders/orders.component';
+import { VieworderComponent } from './vieworder/vieworder.component';
+import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
@@ -19,7 +21,10 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent,canActivate:[AuthGuardService]  },
   { path: 'makeorder', component: MakeorderComponent,canActivate:[AuthGuardService]},
   { path: 'register', component: RegisterComponent },
-  { path: 'viewproduct', component: ViewProductsComponent }
+  { path: 'viewproduct', component: ViewProductsComponent },
+  { path: 'vieworder', component: VieworderComponent,canActivate:[AuthGuardService] },
+  { path: 'home', component: HomeComponent }
+
   
 ];
 

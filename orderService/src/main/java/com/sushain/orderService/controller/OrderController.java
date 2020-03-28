@@ -35,9 +35,9 @@ public class OrderController {
         orderService.delete(id);
     }
 
-    @PostMapping("/{name}")
-    public void findOrder(@PathVariable("name") String name){
-        orderService.findByName(name);
+    @RequestMapping("/{name}")
+    public List<Order> findOrder(@PathVariable("name") String name){
+       return orderService.findByName(name);
     }
 
 

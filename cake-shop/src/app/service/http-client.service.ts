@@ -25,6 +25,10 @@ export class HttpClientService {
       getOrders(){
       return this.httpClient.get<Order[]>('http://localhost:8090/order/get');
   }
+
+  updateOrder(updatedOrde:Order){
+    return this.httpClient.put<Order>('http://localhost:8090/order/update',updatedOrde);
+  }
   // addUser(newUser: User) {
     
     

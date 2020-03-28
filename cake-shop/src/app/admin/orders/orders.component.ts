@@ -44,8 +44,9 @@ export class OrdersComponent implements OnInit {
   updateStatus(id:number) {
     
     this.SelectedOrder = new Order();
-    this.router.navigate(['admin', 'orders'], { queryParams: { action: 'update' } });
+    this.router.navigate(['admin', 'orders'], { queryParams: { id,action: 'update' } });
     
   }
+ 
   
 }

@@ -91,9 +91,8 @@ export class MakeorderComponent implements OnInit {
        this.form.productName = this.product1.productName;
     // this.product1.productName = this.order.productName;
     // this.order.productName = response;
-      // const product2 = new Product();
-     
-      // product2.productName = this.product1.productName;
+    // const product2 = new Product();
+    // product2.productName = this.product1.productName;
 }
 
 }

@@ -27,7 +27,9 @@ public class OrderServiceImpl implements OrderService{
 //        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Date date = new Date();
 
-        order.setOrderStatus("Not Ready");
+        if(order.getOrderStatus()==null){
+            order.setOrderStatus("Not Ready");
+        }
         order.setOrderDate(date);
         Order order1 = orderRepository.save(order);
         return order1;
@@ -41,9 +43,9 @@ public class OrderServiceImpl implements OrderService{
     }
 
     @Override
-    public Order findByName(String s) {
-        Order order = orderRepository.findByCustomerName(s);
-        return order;
+    public List<Order> findByName(String s) {
+//        Order order = orderRepository.findByCustomerName(s);
+        return orderRepository.findByCustomerName(s);
     }
 
 

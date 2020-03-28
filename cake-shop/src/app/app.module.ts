@@ -20,6 +20,8 @@ import { HomeComponent } from './home/home.component';
 import { ViewProductsComponent } from './view-products/view-products.component';
 import { MakeorderComponent } from './makeorder/makeorder.component';
 import { OrdersComponent } from './admin/orders/orders.component';
+import { UpdatestatusComponent } from './admin/orders/updatestatus/updatestatus.component';
+import { VieworderComponent } from './vieworder/vieworder.component';
 // import { NgbDate, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { OrdersComponent } from './admin/orders/orders.component';
     HomeComponent,
     ViewProductsComponent,
     MakeorderComponent,
-    OrdersComponent
+    OrdersComponent,
+    UpdatestatusComponent,
+    VieworderComponent
   ],
   imports: [
     BrowserModule,
