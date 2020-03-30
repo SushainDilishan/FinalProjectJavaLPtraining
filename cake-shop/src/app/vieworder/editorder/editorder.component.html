@@ -1,0 +1,16 @@
+<form>
+    
+    <fieldset disabled ="disabled" >
+    <label for="name">Product Name</label>
+    <input type="text" class="form-control" id="name" placeholder="Product name" [(ngModel)]="order.productName" name="name">
+  </fieldset>
+
+    <label for="orderDate">Recieve Date</label>
+    <input type="date" class="form-control" id="recieveDate"  name="recieveDate" [(ngModel)]="order.recieveDate">
+  
+    
+    <button type="button" class="btn btn-success" (click)="saveOrder()">Update</button>
+    <br>
+    <button type="button" class="btn btn-danger" (click)="deleteOrder()">Remove Order</button>
+    
+  </form>

@@ -1,1 +1,33 @@
-<p>vieworder works!</p>
+<div class="container row">
+    <div   class="col-md-10">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>Customer Name</th>
+        <th>Product Name</th>
+        <th>Order Date</th>
+        <th>Recieve Date</th>
+        <th>Order Status</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let order of orders" >
+        <td>{{order.id}}</td>
+        <td>{{order.customerName}}</td>
+        <td>{{order.productName}}</td>
+        <td>{{order.orderDate}}</td>
+        <td>{{order.recieveDate}}</td>
+        <td>{{order.orderStatus}}</td>
+        <td><button type="button" class="btn btn-primary" (click)="editOrder(order.id)">Edit Order</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="col-md-2">
+    <app-editorder *ngIf="action === 'edit'" [order]="selectedOrder" (OrderEditedEvent)="refreshData()"></app-editorder>
+    </div>
+
+  </div>

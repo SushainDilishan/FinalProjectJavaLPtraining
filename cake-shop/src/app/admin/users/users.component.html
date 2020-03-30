@@ -1,8 +1,10 @@
-<h1>Users Admin</h1>
+<h2>Registered Users</h2>
 <!-- <a class="btn btn-primary mb-3" (click)="addUser()">Create User</a> -->
-<div class="container row">
-    <div   class="col-md-6">
-    <table class="table">
+<!-- [formGroup]="form" #searchInfo (ngSubmit)="searchForm(searchInfo)" -->
+<div class=" row">
+
+    <div   class=" col-md-8">
+    <table class="table" >
       <thead>
       <tr>
         <th>ID</th>
@@ -23,8 +25,10 @@
       </tbody>
     </table>
   </div>
-  <div   class="col-md-6">
+  <div   class="col-md-4">
+
     <app-adduser *ngIf="action === 'add'" [user]="selectedUser" (userAddedEvent)="refreshData()"></app-adduser>
     <app-viewuser *ngIf="action === 'view'" [user]="selectedUser" (userDeletedEvent)="refreshData()"></app-viewuser>
+   
   </div>
 </div>

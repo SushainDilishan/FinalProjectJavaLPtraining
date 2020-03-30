@@ -11,6 +11,7 @@ import { MakeorderComponent } from './makeorder/makeorder.component';
 import { OrdersComponent } from './admin/orders/orders.component';
 import { VieworderComponent } from './vieworder/vieworder.component';
 import { HomeComponent } from './home/home.component';
+import { EditorderComponent } from './vieworder/editorder/editorder.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'viewproduct', component: ViewProductsComponent },
   { path: 'vieworder', component: VieworderComponent,canActivate:[AuthGuardService] },
+  { path: 'editorder', component: EditorderComponent,canActivate:[AuthGuardService] },
   { path: 'home', component: HomeComponent }
 
   

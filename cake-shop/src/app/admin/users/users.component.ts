@@ -14,7 +14,6 @@ export class UsersComponent implements OnInit {
   selectedUser: User;
   action: string;
 
-
   constructor(private httpClientService: HttpClientService,private router: Router,
     private activatedRoute: ActivatedRoute) { }
 
@@ -34,6 +33,7 @@ export class UsersComponent implements OnInit {
         if(selectedUserID){
           this.selectedUser = this.users.find(user=>user.id === +selectedUserID);
         }
+     
       }
     );
   }
@@ -53,7 +53,4 @@ export class UsersComponent implements OnInit {
     this.router.navigate(['admin', 'users'], { queryParams: { action: 'add' } });
     
   }
-
-
-
 }

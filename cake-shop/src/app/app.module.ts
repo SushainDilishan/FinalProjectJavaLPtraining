@@ -22,6 +22,8 @@ import { MakeorderComponent } from './makeorder/makeorder.component';
 import { OrdersComponent } from './admin/orders/orders.component';
 import { UpdatestatusComponent } from './admin/orders/updatestatus/updatestatus.component';
 import { VieworderComponent } from './vieworder/vieworder.component';
+import { EditorderComponent } from './vieworder/editorder/editorder.component';
+
 // import { NgbDate, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { VieworderComponent } from './vieworder/vieworder.component';
     MakeorderComponent,
     OrdersComponent,
     UpdatestatusComponent,
-    VieworderComponent
+    VieworderComponent,
+    EditorderComponent,
   ],
   imports: [
     BrowserModule,

@@ -19,12 +19,14 @@
 
         <ul class="navbar-nav mr-auto" *ngIf="!isLoggedIn || showAdminBoard || showUserBoard">
           <li class="nav-item">
-            <a href="/viewproduct" class="nav-link" routerLink="viewproduct">View Cakes</a>
-          </li>
-          <li class="nav-item">
             <a href="/home" class="nav-link" routerLink="home">home</a>
           </li>
+          <br>
           <li class="nav-item">
+            <a href="/viewproduct" class="nav-link" routerLink="viewproduct">View Cakes</a>
+          </li>
+          <br>
+         <li class="nav-item">
             <a href="/vieworder" class="nav-link" routerLink="vieworder">View Order</a>
           </li>
         </ul>

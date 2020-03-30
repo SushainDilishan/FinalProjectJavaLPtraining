@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -51,6 +52,12 @@ public class UserController {
 
       return userRepository.findAll();
   }
+
+  @RequestMapping("/{name}")
+  public Optional<User> findByName(@PathVariable("name") String name){
+    return  userRepository.findByUsername(name);
+  }
+
   @PostMapping("/signin")
   public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 
