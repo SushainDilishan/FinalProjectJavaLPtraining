@@ -13,6 +13,7 @@ export class OrdersComponent implements OnInit {
   orders:Array<Order>;
   action: string;
   SelectedOrder:Order;
+  term;
   constructor(private router: Router,private httpClientService:HttpClientService,private activatedRoute:ActivatedRoute) { }
 
   

@@ -1,6 +1,12 @@
 <div class="container ">
+  <br>
+  <div class="form-group has-search">
+    <span class="fa fa-search form-control-feedback"></span>
+    <input type="text" class="form-control"  placeholder="Search Your Cake Here" [(ngModel)]="term" aria-label="Search">
+</div>
+  <br>
     <div id="some-list" class="row">
-        <div class="col-sm-3" *ngFor="let product of products">
+        <div class="col-sm-3" *ngFor="let product of products |filter:term">
           <div id="itemDetails"></div>
           <div class="card" style="width: 18rem; padding: 10px;">
             <img src="{{product.retrievedImage}}" class="card-img-top" src="..." alt="Card image cap" height="200" width="100">

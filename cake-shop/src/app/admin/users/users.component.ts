@@ -13,7 +13,7 @@ export class UsersComponent implements OnInit {
   users: Array<User>;
   selectedUser: User;
   action: string;
-
+  term;
   constructor(private httpClientService: HttpClientService,private router: Router,
     private activatedRoute: ActivatedRoute) { }
 

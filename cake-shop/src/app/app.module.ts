@@ -23,7 +23,7 @@ import { OrdersComponent } from './admin/orders/orders.component';
 import { UpdatestatusComponent } from './admin/orders/updatestatus/updatestatus.component';
 import { VieworderComponent } from './vieworder/vieworder.component';
 import { EditorderComponent } from './vieworder/editorder/editorder.component';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 // import { NgbDate, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
@@ -45,12 +45,16 @@ import { EditorderComponent } from './vieworder/editorder/editorder.component';
     UpdatestatusComponent,
     VieworderComponent,
     EditorderComponent,
+    
+   
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    Ng2SearchPipeModule
   ],
   providers: [ {  
     provide:HTTP_INTERCEPTORS, useClass:BasicAuthInterceptorService, multi:true 

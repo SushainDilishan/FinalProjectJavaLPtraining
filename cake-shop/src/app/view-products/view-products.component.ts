@@ -28,7 +28,7 @@ export class ViewProductsComponent implements OnInit {
   showAdminBoard = false;
   showUserBoard = false;
   username: string;
-
+  term;
   constructor(private httpClientService: HttpClientService,
     private router: Router, private tokenStorageService: TokenStorageService,private activedRoute: ActivatedRoute) { }
 

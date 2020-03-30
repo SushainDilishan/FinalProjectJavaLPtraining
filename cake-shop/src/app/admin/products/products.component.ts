@@ -15,6 +15,7 @@ export class ProductsComponent implements OnInit {
   products1:Array<Product>;
   selectedProduct: Product;
   action: string;
+  term;
   
 
   constructor(private httpClientService: HttpClientService,private activedRoute: ActivatedRoute,

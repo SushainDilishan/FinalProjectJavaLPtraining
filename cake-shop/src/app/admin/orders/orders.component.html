@@ -2,6 +2,10 @@
 <!-- <a class="btn btn-primary mb-3" (click)="addUser()">Create User</a> -->
 <div class="container row">
     <div   class="col-md-10">
+
+      <div  >
+        <input type="text" class="form-control" placeholder="Search Orders Here" [(ngModel)]="term">
+    </div>
     <table class="table">
       <thead>
       <tr>
@@ -15,7 +19,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let order of orders" >
+      <tr *ngFor="let order of orders |filter:term" >
         <td>{{order.id}}</td>
         <td>{{order.customerName}}</td>
         <td>{{order.productName}}</td>
