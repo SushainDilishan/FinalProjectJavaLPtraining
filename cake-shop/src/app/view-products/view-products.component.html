@@ -11,14 +11,14 @@
           <div class="card" style="width: 18rem; padding: 10px;">
             <img src="{{product.retrievedImage}}" class="card-img-top" src="..." alt="Card image cap" height="200" width="100">
             <div class="card-body">
-              <p>{{product.id}}</p>
+              
               <h5 class="card-title">{{product.productName}}</h5>
-              <p>{{product.price}}</p>
+              <p>{{product.price | currency:'LKR'}}</p>
               <p class="card-text">{{product.details}}</p>
 
               
-              <div *ngIf="!isLoggedIn">
-                <b class="card-text">Login to Reserve</b>
+              <div  *ngIf="!isLoggedIn"   >
+                <button type="button" class="btn btn-primary" (click) ="Link()" >Login to Reserve</button>
               </div>
               <div *ngIf="showAdminBoard || showUserBoard" >
                 <button type="button" class="btn btn-primary" (click)="viewProduct(product.id)">Reserve Cake</button>

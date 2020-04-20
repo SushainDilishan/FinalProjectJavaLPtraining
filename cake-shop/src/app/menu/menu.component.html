@@ -1,7 +1,12 @@
-<header>
-    <nav class="navbar navbar-expand-md navbar-primary bg-danger">
-        <div><a  class="navbar-brand">BellaCakes</a></div>
-        <ul class="navbar-nav mr-auto">
+<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav">
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-md navbar-primary">
+      <div><a  class="navbar-brand">BellaCakes</a></div>
+      <div class="navbar-header mr-auto">
+       
+        </div>
+        <ul class="nav navbar-nav ml-auto">
             <li *ngIf="showAdminBoard" class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
@@ -17,7 +22,7 @@
             <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a></li> -->
         </ul>
 
-        <ul class="navbar-nav mr-auto" *ngIf="!isLoggedIn || showAdminBoard || showUserBoard">
+        <ul class="nav navbar-nav mr-auto" *ngIf="!isLoggedIn || showAdminBoard || showUserBoard">
           <li class="nav-item">
             <a href="/home" class="nav-link" routerLink="home">home</a>
           </li>
@@ -30,17 +35,18 @@
             <a href="/vieworder" class="nav-link" routerLink="vieworder">View Order</a>
           </li>
         </ul>
-
-        <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
-            <li class="nav-item">
+      </nav>
+        <nav class="navbar navbar-expand-md navbar-primary ml-auto">
+        <ul class="nav navbar-nav ml-auto" *ngIf="!isLoggedIn">
+            <li class="nav-item ml-auto">
               <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item ml-auto">
               <a href="/login" class="nav-link" routerLink="login">Login</a>
             </li>
           </ul>
 
-          <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+          <ul class="nav navbar-nav ml-auto" *ngIf="isLoggedIn">
             <!-- <li class="nav-item">
               <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
             </li> -->
@@ -48,5 +54,7 @@
               <a href="/login" class="nav-link" (click)="logout()">LogOut</a>
             </li>
           </ul>
-    </nav>
+          </nav>
+    
+    </div>
 </header>

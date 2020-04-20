@@ -35,7 +35,7 @@ export class MakeorderComponent implements OnInit {
 
   form: any = {};
   isSuccessful = false;
-  isSignUpFailed = false;
+  isOrderFailed = false;
   // errorMessage = '';
   constructor(private router: Router
     ,private httpClientService: HttpClientService,private route: ActivatedRoute,private tokenStorage:TokenStorageService,private authService:AuthenticationService) {
@@ -78,11 +78,11 @@ export class MakeorderComponent implements OnInit {
       data => {
         console.log(data);
         this.isSuccessful = true;
-        this.isSignUpFailed = false;
+        this.isOrderFailed = false;
       },
       err => {
         this.errorMessage = err.error.message;
-        this.isSignUpFailed = true;
+        this.isOrderFailed = true;
       }
     );}
 

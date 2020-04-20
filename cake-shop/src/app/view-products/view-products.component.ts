@@ -102,6 +102,9 @@ export class ViewProductsComponent implements OnInit {
     this.router.navigate(['makeorder'],{queryParams: { id, action: 'view'} });
     this.productviewEvent.emit();
   }
+  Link(){
+    this.router.navigate(['login']);
+  }
 
   // updateProduct(id:number){
   //   this.router.navigate(['admin', 'products'], { queryParams: { id, action: 'edit' } });

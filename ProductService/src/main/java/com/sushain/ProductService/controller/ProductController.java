@@ -45,7 +45,7 @@ public class ProductController {
     }
 
     @PutMapping("/update")
-    public void updateBook(@RequestBody Product product){
+    public void updateProduct(@RequestBody Product product){
         productService.save(product);
     }
 

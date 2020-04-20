@@ -8,7 +8,7 @@
         #f="ngForm"
         novalidate
          >
-        
+    <fieldset disabled>
          <div class="form-group">
     <label for="productName">Product Name</label>
     <input type="text"
@@ -21,7 +21,8 @@
       />
 
     </div>
-    
+  </fieldset>    
+    <fieldset disabled>
     <div class="form-group">
      <label for="customerName">Customer Name</label>
     <input type="text"
@@ -33,7 +34,8 @@
       #customerName="ngModel"
        />
 
-  </div> 
+  </div>
+</fieldset>
 
   <div class="form-group">
     <label for="recieveDate">Recieve Date:</label>
@@ -50,8 +52,14 @@
   <div class="form-group">
     <button class="btn btn-primary btn-block">Place Order</button>
   </div>
+  <div class="alert alert-warning" *ngIf="f.submitted && isOrderFailed">
+    Placing Order Failed<br />{{ errorMessage }}
+  </div>
 
   </form>
+  <div class="alert alert-success" *ngIf="isSuccessful">
+    Your Order is Placed
+  </div>
   
   </div>
 </div>
