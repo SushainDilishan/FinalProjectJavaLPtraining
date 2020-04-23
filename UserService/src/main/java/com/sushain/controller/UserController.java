@@ -49,7 +49,6 @@ public class UserController {
 
   @RequestMapping("/get")
   public List<User> getUsers(){
-
       return userRepository.findAll();
   }
 
@@ -92,6 +91,8 @@ public class UserController {
               .badRequest()
               .body(new MessageResponse("Error: Email is already in use!"));
     }
+
+
 
     // Create new user's account
     User user = new User(signUpRequest.getUsername(),

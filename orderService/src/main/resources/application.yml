@@ -1,13 +1,21 @@
 spring:
+  application:
+    name: order-service
   datasource:
-    url: jdbc:mysql://localhost:3306/orderDB?createDatabaseIfNotExist=true
+    url: jdbc:mysql://mysql-standalone:3306/order?createDatabaseIfNotExist=true
     username: sushi
-    password: sushi1234
+    password: password
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
       ddl-auto: update
+
 server:
   port: 8090
+eureka:
+  client:
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

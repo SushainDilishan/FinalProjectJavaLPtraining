@@ -61,15 +61,13 @@
               [(ngModel)]="form.telephone"
               required
               telephone
-              maxlength="10"
+              minlength="10"
               #telephone="ngModel"
             />
             <div class="alert-danger" *ngIf="f.submitted && telephone.invalid">
               <div *ngIf="telephone.errors.required">Telephone is Required</div>
-              <div *ngIf="telephone.errors.maxlength">
-                Telephone should be 10 digits
+              <div *ngIf="telephone.errors.minlength">Telephone should be 10 digits</div>
               </div>
-            </div>
           </div>
         <div class="form-group">
           <label for="password">Password</label>
